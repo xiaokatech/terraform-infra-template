@@ -1,4 +1,4 @@
-def lambda_handler(event, context):
+def handler(event, context):
     # message = "Hello {} !".format(event["key1"])
     # print("message")
     # print(message)
