@@ -1,0 +1,56 @@
+# 本地 Terraform 目录
+.terraform/
+# 但不要排除 .terraform.lock.hcl 文件
+!.terraform.lock.hcl
+
+# 如果你想要锁定提供商版本，请取消下面这行的注释
+# .terraform.lock.hcl
+
+# Terraform 状态文件
+*.tfstate
+*.tfstate.*
+
+# 崩溃日志
+crash.log
+crash.*.log
+
+# 排除所有 .tfvars 文件，它们通常包含敏感数据
+*.tfvars
+*.tfvars.json
+
+# 如果有非敏感的默认变量文件，可以取消下面这行的注释
+# !example.tfvars
+
+# 覆盖文件
+override.tf
+override.tf.json
+*_override.tf
+*_override.tf.json
+
+# CLI 配置文件
+.terraformrc
+terraform.rc
+
+# 本地环境文件
+.env
+.envrc
+
+# IDE 和编辑器文件
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# OS 生成的文件
+.DS_Store
+Thumbs.db
+
+# Python
+venv/
+build/
+layer/
+__pycache__/
+
+# NPM and Yarn
+node_modules/
+dist/
