@@ -5,8 +5,6 @@ locals {
         path_prefix = "/lambda_url/${module.module_05_lambdas_func_01.lambda_name}"
         endpoint    = module.module_05_lambdas_func_01.lambda_url
       }
-    }
-    lambda_endpoints = {
       "${module.module_05_lambdas_func_02.lambda_name}" = {
         path_prefix = "/lambda_url/${module.module_05_lambdas_func_02.lambda_name}"
         endpoint    = module.module_05_lambdas_func_02.lambda_url
