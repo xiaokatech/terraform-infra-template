@@ -2,7 +2,7 @@ locals {
   runtime  = "nodejs22.x"
   src_path = "${path.module}/src"
 
-  service_name = "2025-07-12-func-02-hello-world-stream"
+  service_name = "2025-07-12-node-func-02-hello-world-stream"
 
   function_name = "${local.service_name}-${var.environment}"
 }

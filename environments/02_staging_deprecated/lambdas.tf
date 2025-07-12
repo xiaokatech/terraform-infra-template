@@ -37,3 +37,14 @@ module "module_05_lambdas_func_02" {
   create_api_gateway         = false
   create_lambda_function_url = true
 }
+
+module "module_06_lambdas_python_func_01" {
+  source = "../../modules/06_lambdas_python/2025-07-12-func-01-hello-world"
+
+  environment = local.environment
+  tags        = local.all_tags
+
+  # API Gateway
+  create_api_gateway         = false
+  create_lambda_function_url = true
+}
