@@ -30,3 +30,14 @@ module "module_00_share_module_01_tag" {
 
   data_external = local.data_external
 }
+
+
+module "module_01_security" {
+  source = "../../modules/01_security"
+
+  # 环境特定的变量
+  vpc_id      = local.vpc_id
+  environment = local.environment
+
+  tags = module.module_00_share_module_01_tag.all_tags
+}
