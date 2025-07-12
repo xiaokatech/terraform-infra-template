@@ -1,0 +1,19 @@
+{
+  "name": "05_lambdas",
+  "private": true,
+  "workspaces": [
+    "2025-07-12-func-02-hello-world-stream",
+    "libs"
+  ],
+  "scripts": {
+    "cd:lambda_2": "cd 2025-07-12-func-02-hello-world-stream/microservice",
+    "build:libs": "cd libs && npm run build"
+  },
+  "dependencies": {
+    "dotenv": "^17.0.1"
+  },
+  "devDependencies": {
+    "@types/node": "^24.0.12",
+    "typescript": "^5.0.0"
+  }
+}
