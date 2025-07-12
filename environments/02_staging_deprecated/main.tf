@@ -13,6 +13,15 @@ locals {
 
   # 定义通用标签
   all_tags = module.module_00_share_module_01_tag.all_tags
+
+  module_01_security = {
+    lambda_security_group_id = module.module_01_security.lambda_security_group_id
+  }
+
+  module_02_networking = {
+    vpc_id             = module.module_02_networking.vpc_id
+    private_subnet_ids = module.module_02_networking.private_subnet_ids
+  }
 }
 
 
@@ -38,6 +47,18 @@ module "module_01_security" {
   # 环境特定的变量
   vpc_id      = local.vpc_id
   environment = local.environment
+
+  tags = module.module_00_share_module_01_tag.all_tags
+}
+
+module "module_02_networking" {
+  source = "../../modules/02_networking"
+  # 环境特定的变量
+
+  vpc_id          = local.vpc_id
+  region          = local.region
+  environment     = local.environment
+  route_table_ids = data.aws_route_tables.vpc_route_tables.ids
 
   tags = module.module_00_share_module_01_tag.all_tags
 }
