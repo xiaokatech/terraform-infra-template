@@ -1,5 +1,5 @@
 test-unit:
-	pytest .
+	pytest tests/unit/
 
 # deploy:
 # 	cd terraform && terraform apply -auto-approve
