@@ -12,11 +12,6 @@ output "module_03_database" {
   value = local.module_03_database
 }
 
-# output "module_03_database" {
-#   value  = local.module_03_database
-# }
-
-
 # output "module_05_01_microservices" {
 #   value = local.module_05_01_microservices
 # }

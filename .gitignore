@@ -34,6 +34,7 @@ terraform.rc
 # 本地环境文件
 .env
 .envrc
+*env
 
 # IDE 和编辑器文件
 .idea/
