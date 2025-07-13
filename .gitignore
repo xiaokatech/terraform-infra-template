@@ -55,3 +55,7 @@ __pycache__/
 # NPM and Yarn
 node_modules/
 dist/
+
+# Keys
+*.pem
+*.pub
