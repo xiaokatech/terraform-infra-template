@@ -17,14 +17,15 @@ resource "aws_db_instance" "postgresql" {
   storage_type          = "gp2"          # 存储类型
 
   # 数据库凭据
-  username             = "postgresadmin" # 主用户名
-  password             = var.db_password # 从变量获取密码
+  db_name              = "terraform_test_db" # 数据库名称
+  username             = "postgresadmin"     # 主用户名
+  password             = var.db_password     # 从变量获取密码
   parameter_group_name = "default.postgres14"
 
   # 网络配置
   db_subnet_group_name   = aws_db_subnet_group.default.name
   vpc_security_group_ids = [aws_security_group.rds.id]
-  publicly_accessible    = false # 生产环境建议设为 false
+  publicly_accessible    = true # 生产环境建议设为 false
 
   # 备份和维护
   backup_retention_period = 7     # 保留备份的天数
