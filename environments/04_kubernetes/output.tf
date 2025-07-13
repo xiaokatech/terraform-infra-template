@@ -11,6 +11,5 @@ output "module_02_networking" {
 }
 
 output "project_07_kubernetes" {
-  value     = local.project_07_kubernetes
-  sensitive = true
+  value = local.project_07_kubernetes
 }

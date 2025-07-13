@@ -48,15 +48,15 @@ resource "aws_iam_access_key" "user_kops" {
   user = aws_iam_user.kops.name
 }
 
-output "user_kops_access_key" {
-  value     = aws_iam_access_key.user_kops.id
-  sensitive = true
-}
+# output "user_kops_access_key" {
+#   value     = aws_iam_access_key.user_kops.id
+#   sensitive = true
+# }
 
-output "user_kops_secret_key" {
-  value     = aws_iam_access_key.user_kops.secret
-  sensitive = true
-}
+# output "user_kops_secret_key" {
+#   value     = aws_iam_access_key.user_kops.secret
+#   sensitive = true
+# }
 
 # Output as file
 resource "local_file" "user_kops_creds" {

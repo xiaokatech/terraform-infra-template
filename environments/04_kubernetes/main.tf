@@ -23,10 +23,7 @@ locals {
     all_subnet_ids = module.module_02_networking.all_subnet_ids
   }
 
-  project_07_kubernetes = {
-    user_kops_access_key = module.project_07_kubernetes.user_kops_access_key
-    user_kops_secret_key = module.project_07_kubernetes.user_kops_secret_key
-  }
+  project_07_kubernetes = module.project_07_kubernetes
 }
 
 
