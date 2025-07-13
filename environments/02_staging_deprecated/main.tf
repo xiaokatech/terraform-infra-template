@@ -19,8 +19,8 @@ locals {
   }
 
   module_02_networking = {
-    vpc_id             = module.module_02_networking.vpc_id
-    private_subnet_ids = module.module_02_networking.private_subnet_ids
+    vpc_id         = module.module_02_networking.vpc_id
+    all_subnet_ids = module.module_02_networking.all_subnet_ids
   }
 }
 

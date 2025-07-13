@@ -16,7 +16,7 @@ locals {
   }
 
   # 合并 common_tags 和 automated_tags
-  all_tags = local.common_tags
+  all_tags = merge(local.common_tags, local.automated_tags)
 
   # 为不同环境定义特定标签
   # environment_tags = {

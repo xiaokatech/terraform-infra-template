@@ -8,6 +8,9 @@ output "module_01_security" {
 output "module_02_networking" {
   value = local.module_02_networking
 }
+output "module_03_database" {
+  value = local.module_03_database
+}
 
 # output "module_03_database" {
 #   value  = local.module_03_database
