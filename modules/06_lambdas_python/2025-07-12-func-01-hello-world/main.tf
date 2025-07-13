@@ -1,5 +1,5 @@
 locals {
-  runtime  = "python3.12"
+  runtime  = "python3.13"
   src_path = "${path.module}/src"
 
   service_name = "2025-07-12-python-func-01-hello-world"
