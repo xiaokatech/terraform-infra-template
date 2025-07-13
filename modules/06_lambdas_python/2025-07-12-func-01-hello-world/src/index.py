@@ -4,9 +4,10 @@ def lambda_handler(event, context):
 
 
 # import os
-# import psycopg2
 
-# # from psycopg2 import pool
+# # import psycopg2
+
+# from psycopg2 import pool
 
 # # 使用连接池管理数据库连接
 # connection_pool = None
@@ -16,7 +17,7 @@ def lambda_handler(event, context):
 #     def init_db():
 #         global connection_pool
 #         if connection_pool is None:
-#             connection_pool = psycopg2.pool.SimpleConnectionPool(
+#             connection_pool = pool.SimpleConnectionPool(
 #                 1,
 #                 10,
 #                 host=os.getenv("DB_HOST"),

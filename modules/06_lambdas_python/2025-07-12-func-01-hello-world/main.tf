@@ -28,6 +28,8 @@ resource "aws_lambda_function" "service" {
   # handler = "index.lambda_handler_db"
   runtime = local.runtime
 
+  # architectures = "arm"
+
   timeout = 180
 
   memory_size = 512
