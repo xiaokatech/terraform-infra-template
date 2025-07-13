@@ -1,8 +1,3 @@
 def handler(event, context):
-    # message = "Hello {} !".format(event["key1"])
-    # print("message")
-    # print(message)
-    # return {"message": message}
-    print("event")
-    print(event)
-    return "Hello world from python3.12!"
+    name = event.get("queryStringParameters", {}).get("name", "World")
+    return {"statusCode": 200, "body": f"Hello {name}!"}
