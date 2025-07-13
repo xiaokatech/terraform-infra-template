@@ -18,19 +18,19 @@
 # @TOFIX-end
 
 
-# data "archive_file" "lambda_layer_node_modules" {
-#   type        = "zip"
-#   source_dir  = "${local.src_path}/layer/"
-#   output_path = "${local.src_path}/${local.service_name}_layer_node_modules-${var.environment}.zip"
+data "archive_file" "lambda_layer_packages" {
+  type        = "zip"
+  source_dir  = "${local.src_path}/layer/"
+  output_path = "${local.src_path}/${local.service_name}_layer_packages-${var.environment}.zip"
 
-#   # 确保在打包前准备好目录结构
-#   #   depends_on = [null_resource.prepare_lambda_layer]
-# }
+  # 确保在打包前准备好目录结构
+  #   depends_on = [null_resource.prepare_lambda_layer]
+}
 
-# resource "aws_lambda_layer_version" "node_modules" {
-#   layer_name          = "${local.service_name}_node_modules"
-#   description         = "node_modules for ${local.service_name} Lambda function"
-#   filename            = data.archive_file.lambda_layer_node_modules.output_path
-#   source_code_hash    = data.archive_file.lambda_layer_node_modules.output_base64sha256
-#   compatible_runtimes = [local.runtime]
-# }
+resource "aws_lambda_layer_version" "packages" {
+  layer_name          = "${local.service_name}_packages"
+  description         = "node_modules for ${local.service_name} Lambda function"
+  filename            = data.archive_file.lambda_layer_packages.output_path
+  source_code_hash    = data.archive_file.lambda_layer_packages.output_base64sha256
+  compatible_runtimes = [local.runtime]
+}

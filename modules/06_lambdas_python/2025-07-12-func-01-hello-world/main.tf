@@ -24,8 +24,9 @@ locals {
 resource "aws_lambda_function" "service" {
   function_name = local.function_name
   role          = aws_iam_role.lambda_role.arn
-  handler       = "index.handler"
-  runtime       = local.runtime
+  handler       = "index.lambda_handler"
+  # handler = "index.lambda_handler_db"
+  runtime = local.runtime
 
   timeout = 180
 
@@ -36,9 +37,9 @@ resource "aws_lambda_function" "service" {
   filename         = data.archive_file.lambda_zip.output_path
   source_code_hash = data.archive_file.lambda_zip.output_base64sha256
 
-  # layers = [
-  #   aws_lambda_layer_version.node_modules.arn,
-  # ]
+  layers = [
+    aws_lambda_layer_version.packages.arn,
+  ]
 
   # 确保zip文件存在
   depends_on = [
@@ -71,8 +72,9 @@ resource "aws_lambda_function" "service" {
 
 # 将代码打包成zip
 data "archive_file" "lambda_zip" {
-  type        = "zip"
-  source_dir  = "${local.src_path}/"
+  type = "zip"
+  # source_dir  = "${local.src_path}/"
+  source_file = "${local.src_path}/index.py"
   output_path = "${local.src_path}/${local.service_name}-${var.environment}.zip"
 }
 
